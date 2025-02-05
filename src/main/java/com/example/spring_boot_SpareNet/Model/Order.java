@@ -16,6 +16,6 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
     private LocalDate orderDate;
-    private Double orderAmount;
+    private Double orderAmounts;
     private String orderStatus;
 }
