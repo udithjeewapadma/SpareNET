@@ -19,4 +19,8 @@ public class RequestProduct {
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private Admin admin;
+
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private Shop shop;
 }

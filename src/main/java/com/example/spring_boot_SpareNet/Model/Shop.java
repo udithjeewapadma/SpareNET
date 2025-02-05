@@ -22,4 +22,18 @@ public class Shop {
 
     @OneToMany(mappedBy = "shop")
     private List<Order> orders;
+
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
+
+    @OneToMany(mappedBy = "shop")
+    private List<RequestProduct> requestProductList;
+
+    @OneToMany(mappedBy = "shop")
+    private List<FriendlyShopList> friendlyShopLists;
+
+    @ManyToOne
+    @JoinColumn(name = "inventory_id")
+    private Inventory inventory;
 }

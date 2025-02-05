@@ -17,4 +17,10 @@ public class Admin {
 
     @OneToMany(mappedBy = "admin")
     private List<RequestProduct> requestProducts;
+
+    @OneToMany(mappedBy = "admin")
+    private List<Shop> shops;
+
+    @OneToMany(mappedBy = "admin")
+    private List<Product> products;
 }

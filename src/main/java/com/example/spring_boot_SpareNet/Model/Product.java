@@ -14,14 +14,15 @@ public class Product {
     private String productName;
     private String brandName;
     private String model;
-    private String unitPrice;
     private String productCondition;
     private String privacy;
-    private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
 
 }
