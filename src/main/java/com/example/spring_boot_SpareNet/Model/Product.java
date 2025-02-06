@@ -3,6 +3,8 @@ package com.example.spring_boot_SpareNet.Model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "products")
@@ -24,5 +26,11 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private Admin admin;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Inventory> inventories;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Order> orders;
 
 }

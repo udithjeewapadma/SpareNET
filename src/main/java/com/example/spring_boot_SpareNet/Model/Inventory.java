@@ -1,8 +1,6 @@
 package com.example.spring_boot_SpareNet.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -19,4 +17,12 @@ public class Inventory {
 
     @OneToMany(mappedBy = "inventory")
     private List<Shop> shops;
+
+    @ManyToMany
+    @JoinTable(
+            name = "inventory_products",
+            joinColumns = @JoinColumn(name = "inventory_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    private List<Product> products;
 }
