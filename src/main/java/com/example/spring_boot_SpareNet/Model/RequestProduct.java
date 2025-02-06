@@ -3,6 +3,8 @@ package com.example.spring_boot_SpareNet.Model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class RequestProduct {
@@ -23,4 +25,8 @@ public class RequestProduct {
     @ManyToOne
     @JoinColumn(name = "shop_id")
     private Shop shop;
+
+    @OneToMany(mappedBy = "requestProduct")
+    private List<Product> products;
+
 }

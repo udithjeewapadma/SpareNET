@@ -18,11 +18,7 @@ public class Inventory {
     @OneToMany(mappedBy = "inventory")
     private List<Shop> shops;
 
-    @ManyToMany
-    @JoinTable(
-            name = "inventory_products",
-            joinColumns = @JoinColumn(name = "inventory_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
-    )
+    @OneToMany(mappedBy = "inventory")
     private List<Product> products;
+
 }

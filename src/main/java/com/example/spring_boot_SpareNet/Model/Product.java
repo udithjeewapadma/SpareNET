@@ -27,10 +27,13 @@ public class Product {
     @JoinColumn(name = "admin_id")
     private Admin admin;
 
-    @ManyToMany(mappedBy = "products")
-    private List<Inventory> inventories;
+    @ManyToOne
+    @JoinColumn(name = "inventory_id")
+    private Inventory inventory;
 
-    @ManyToMany(mappedBy = "products")
-    private List<Order> orders;
+    @ManyToOne
+    @JoinColumn(name = "request_product_id")
+    private RequestProduct requestProduct;
+
 
 }
