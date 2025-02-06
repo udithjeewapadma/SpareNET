@@ -1,12 +1,10 @@
 package com.example.spring_boot_SpareNet.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,4 +17,8 @@ public class ShopRequest {
     private Long receiverShopId;
     private LocalDate requestDate;
     private String requestStatus;
+
+    @ManyToMany(mappedBy = "shopRequests")
+    private List<Shop> shops;
+
 }

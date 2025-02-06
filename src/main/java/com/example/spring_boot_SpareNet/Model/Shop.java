@@ -30,10 +30,26 @@ public class Shop {
     @OneToMany(mappedBy = "shop")
     private List<RequestProduct> requestProductList;
 
-    @OneToMany(mappedBy = "shop")
-    private List<FriendlyShopList> friendlyShopLists;
+    @ManyToMany
+    @JoinTable(
+            name = "friendly_shop",
+            joinColumns = @JoinColumn(name = "shop_id"),
+            inverseJoinColumns = @JoinColumn(name = "friendly_shop_id")
+    )
+    private List<Shop> friendlyShops;
+
 
     @ManyToOne
     @JoinColumn(name = "inventory_id")
     private Inventory inventory;
+
+    @ManyToMany
+    @JoinTable(
+            name = "shop_requests",
+            joinColumns = @JoinColumn(name = "shop_id"),
+            inverseJoinColumns = @JoinColumn(name = "request_id")
+    )
+    private List<ShopRequest> shopRequests;
+
+
 }
